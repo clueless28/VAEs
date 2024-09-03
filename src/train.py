@@ -49,7 +49,7 @@ class Train:
             if val_loss < best_val_loss:
                 best_val_loss = val_loss
                 torch.save(model.state_dict(), os.path.join(config['log_params']['assets'],f'best_vae_epoch.pth'))
-                print(f'Best model saved at epoch {epoch} with validation loss {best_val_loss:.4f}')
+                print(f'Best model saved for epoch {epoch} with validation loss {best_val_loss:.4f}')
 
 
 # Load the YAML file
