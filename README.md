@@ -1,2 +1,2 @@
 # VAEs
-Variational AutoEncoders (VAEs) implemented in Pytorch with focus on Reproducibility
+Variational AutoEncoders (VAEs) implemented in Pytorch with focus on Reproducibility.

@@ -1,0 +1,15 @@
+model params:
+  in_channels: 3
+  latent_dim: 128
+  lr: 1e-3
+  epochs: 50
+
+loader_params:
+  input_directory: "/home/drovco/Bhumika/abstract_art_512"
+  batch_size: 32
+  num_workers: 0
+
+log_params:
+  assets: "/home/drovco/Bhumika/VAEs/assets"
+  save_weights: "/home/drovco/Bhumika/VAEs/assets"
+
