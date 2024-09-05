@@ -33,7 +33,7 @@ class CustomImageDataset(Dataset):
 def loader(path, batch_size):
     # Define transformations
     transform = transforms.Compose([
-        transforms.Resize((128, 128)),
+        transforms.Resize((128,128)),
         transforms.ToTensor()
     ])
     dataset = CustomImageDataset(root_dir=path, transform=transform)

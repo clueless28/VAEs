@@ -1,16 +1,23 @@
 # Training settings
-from vae import VAE
+
+import os
+from  src.models.vanilla_vae import VAE
+from  src.models.gmm_vae import VAE_GMM
 from dataloader import loader
 import torch
-import os
 import torch.optim as optim
 import torch.nn.functional as F
 import yaml
 
+model_classes = {
+    'VAE': VAE,  # Add other model classes if needed
+    'VAE_GMM': VAE_GMM
+}
 
 class Train:
     def __init__(self, config):
         self.lr = config['model params']['lr']
+        self.model_name = config['model params']['name']
         self.epochs = config['model params']['epochs']
         self.latent_dim = config['model params']['latent_dim']
         self.batch_size = config['loader_params']['batch_size']
@@ -18,7 +25,7 @@ class Train:
         self.train_loader, self.val_loader = loader(config['loader_params']['input_directory'], self.batch_size)
 
     def train(self):
-        model = VAE().to(self.device)
+        model = model_classes[self.model_name]().to(self.device)
         optimizer = optim.Adam(model.parameters(), lr=float(self.lr))
         best_val_loss = float('inf')
 
@@ -48,7 +55,7 @@ class Train:
             val_loss /= len(self.val_loader)
             if val_loss < best_val_loss:
                 best_val_loss = val_loss
-                torch.save(model.state_dict(), os.path.join(config['log_params']['assets'],f'best_vae_epoch.pth'))
+                torch.save(model.state_dict(), os.path.join(config['log_params']['assets'], self.model_name +  '_' + f'best_vae_epoch.pth'))
                 print(f'Best model saved for epoch {epoch} with validation loss {best_val_loss:.4f}')
 
 
