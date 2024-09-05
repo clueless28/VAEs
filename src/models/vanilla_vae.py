@@ -3,6 +3,7 @@ import torch.nn as nn
 from torch.autograd import Variable
 import torch.nn.functional as F
 
+
 class VAE(nn.Module):
     def __init__(self, image_channels=3, h_dim=256*8*8, z_dim=128):
         super(VAE, self).__init__()
@@ -51,3 +52,4 @@ class VAE(nn.Module):
         BCE = F.mse_loss(recon_x, x, reduction='sum')  # Reconstruction loss
         KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())  # KL Divergence
         return BCE + KLD
+        

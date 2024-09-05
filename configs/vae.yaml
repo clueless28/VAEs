@@ -3,6 +3,7 @@ model params:
   latent_dim: 128
   lr: 1e-3
   epochs: 50
+  name: 'VAE'
 
 loader_params:
   input_directory: "/home/drovco/Bhumika/abstract_art_512"
