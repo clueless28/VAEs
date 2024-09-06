@@ -1,6 +1,6 @@
 model params:
   in_channels: 3
-  latent_dim: 128
+  latent_dim: 256
   lr: 1e-3
   epochs: 50
   name: 'VAE'
