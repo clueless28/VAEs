@@ -26,7 +26,7 @@ class Test:
         self.batch_size = config['loader_params']['batch_size']
     def test(self):
         model = model_classes[self.model_name]().to(self.device)
-        model.load_state_dict(torch.load(os.path.join(config['log_params']['assets'], self.model_name +  '_' + f'best_vae_epoch.pth'), weights_only=True))  # Ensure correct epoch or best model is loaded
+        model.load_state_dict(torch.load(os.path.join(config['log_params']['assets'], self.model_name +  '_' + f'best_vae_epoch_f.pth'), weights_only=True))  # Ensure correct epoch or best model is loaded
         model.eval()
         image_dir = ['/home/drovco/Bhumika/abstract_art_512/abstract_abdul-qader-al-raes_258.jpg', '/home/drovco/Bhumika/abstract_art_512/abstract_yves-klein_6956.jpg', '/home/drovco/Bhumika/abstract_art_512/abstract_yves-klein_6946.jpg', '/home/drovco/Bhumika/abstract_art_512/abstract_yves-gaucher_4910.jpg'  ]
         transform = transforms.Compose([
