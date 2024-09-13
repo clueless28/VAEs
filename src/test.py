@@ -3,6 +3,7 @@ import os
 import yaml
 import torchvision.transforms as transforms
 import torch.nn as nn
+from  src.models.vq_vae import VQVAE
 import matplotlib.pyplot as plt
 from src.models.vanilla_vae import VAE
 from  src.models.gmm_vae import VAE_GMM
@@ -11,7 +12,8 @@ from dataloader import loader
 import numpy as np
 model_classes = {
     'VAE': VAE,  # Add other model classes if needed
-    'VAE_GMM': VAE_GMM
+    'VAE_GMM': VAE_GMM,
+    'VQVAE': VQVAE
 }
 
 class Test:
