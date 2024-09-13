@@ -38,7 +38,7 @@ class WavletVAE(nn.Module):
                             nn.ReLU(),
                             nn.Conv2d(32, 1, kernel_size=1),
                             nn.Sigmoid()
-                        )
+                        )      
         self.skip_weight1 = nn.Parameter(torch.tensor(0.5))
         self.latent_weight = nn.Parameter(torch.tensor(2.0))
         self.attention_weight = nn.Parameter(torch.tensor(1.0))
